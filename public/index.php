@@ -35,7 +35,19 @@ switch ($page) {
         require __DIR__ . '/../app/controllers/GudangController.php';
         break;
     case 'report':
-        require_once __DIR__ . '/../app/controllers/ReportController.php';
+        require __DIR__ . '/../app/controllers/ReportController.php';
+        break;
+    case 'report_generate':
+        require __DIR__ . '/../app/controllers/ReportGenerateController.php';
+        break;
+    case 'report_update':
+        require __DIR__ . '/../app/controllers/ReportUpdateController.php';
+        break;
+    case 'invoice_view_partial':
+        require __DIR__ . '/../app/controllers/InvoiceViewController.php';
+        break;
+    case 'invoice_delete':
+        require __DIR__ . '/../app/controllers/InvoiceDeleteController.php';
         break;
     case 'scan':
         require __DIR__ . '/../app/controllers/ScanController.php';
