@@ -50,7 +50,7 @@ switch ($page) {
         require __DIR__ . '/../app/controllers/InvoiceDeleteController.php';
         break;
     case 'scan':
-        require __DIR__ . '/../app/controllers/ScanController.php';
+        require __DIR__.'/../app/controllers/ScanController.php';
         break;
     case 'logout':
         $_SESSION = [];
