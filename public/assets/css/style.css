@@ -1,0 +1,198 @@
+/* --- Import Font dan Variabel Kustom --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+:root {
+    --bg-primary: #ffffff;
+    --text-primary: #000000;
+    --text-secondary: #6c757d;
+    --btn-primary-bg: #000000;
+    --btn-primary-text: #ffffff;
+    --btn-google-border: #dee2e6;
+    --border-radius-card: 2.5rem;
+    --border-radius-input: 0.5rem;
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Poppins', sans-serif;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+.login-container-custom {
+    display: flex;
+    width: 100%;
+    max-width: 1200px; /* Ukuran maksimal container */
+    min-height: 90vh; /* Mengisi hampir seluruh tinggi layar */
+    background-color: var(--bg-primary);
+    border-radius: var(--border-radius-card);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+/* --- Kolom Kiri: Visual --- */
+.login-visual-left {
+    flex: 1 1 50%;
+    background-image: url('https://images.unsplash.com/photo-1549490349-f54291880436?q=80&w=1974&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    padding: 3rem;
+    color: #ffffff;
+    display: none; /* Default disembunyikan di mobile */
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-radius: var(--border-radius-card) 0 0 var(--border-radius-card);
+}
+
+.login-visual-left::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.2));
+    z-index: 1;
+}
+
+.quote-container, .quote-text-container {
+    position: relative;
+    z-index: 2;
+}
+
+.quote-title {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 2px;
+    opacity: 0.8;
+}
+
+.main-quote-title {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    font-weight: 400;
+}
+
+.main-quote-subtitle {
+    font-size: 0.9rem;
+    font-weight: 300;
+    line-height: 1.5;
+}
+
+/* --- Kolom Kanan: Form Login --- */
+.login-form-right {
+    flex: 1 1 50%;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.form-header {
+    margin-bottom: 2rem;
+}
+
+.form-header .logo-text {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.welcome-title {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.welcome-subtitle {
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+}
+
+/* --- Form --- */
+.form-label {
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.form-control {
+    border-radius: var(--border-radius-input);
+    padding: 0.75rem 1rem;
+    border: 1px solid #dee2e6;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #000000;
+    box-shadow: 0 0 0 0.25rem rgba(0,0,0,0.1);
+}
+
+.form-check-label, .forgot-password-link {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+.forgot-password-link:hover, .signup-link:hover {
+    text-decoration: underline;
+    color: var(--text-primary);
+}
+
+.login-options {
+    margin-top: 1.5rem;
+}
+
+.btn-signin {
+    padding: 0.75rem;
+    border-radius: var(--border-radius-input);
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-dark {
+    background-color: var(--btn-primary-bg);
+    color: var(--btn-primary-text);
+}
+
+.btn-dark:hover {
+    background-color: #212529;
+}
+
+.btn-google {
+    background-color: #ffffff;
+    border: 1px solid var(--btn-google-border);
+    color: var(--text-primary);
+}
+
+.btn-google img {
+    height: 1.2rem;
+    margin-right: 0.5rem;
+}
+
+.footer-link {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.signup-link {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+/* --- Responsive Layout --- */
+@media (min-width: 992px) {
+    .login-visual-left {
+        display: flex;
+    }
+}
