@@ -52,39 +52,7 @@ Akses: `http://localhost/tamara/public/`
 
 ---
 
-## Linux (Apache native)
-
-### 1) Clone ke `/var/www`
-```bash
-sudo mkdir -p /var/www
-cd /var/www
-sudo git clone https://github.com/<org-atau-username>/tamara.git
-cd tamara
-```
-
-### 2) Composer
-```bash
-sudo composer install
-sudo composer dump-autoload -o
-```
-
-### 3) Database (phpMyAdmin atau MySQL CLI)
-- phpMyAdmin (jika terpasang) → buat DB `tamara` → **Import** file **.sql** (mis. `database/tamara.sql`)  
-- atau MySQL CLI:
-  ```bash
-  sudo mysql -e "CREATE DATABASE tamara CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
-  # lalu import:
-  # mysql -u root -p tamara < path/ke/file.sql
-  ```
-
-### 4) Konfigurasi & Jalankan
-- Edit `config/database.php` sesuai kredensial.  
-- Set **DocumentRoot** ke `/var/www/tamara/public` *(atau akses `http://localhost/tamara/public/`)*  
-- Pastikan **mod_rewrite** aktif, lalu **restart Apache**.
-
----
-
-## Linux (LAMPP/XAMPP for Linux) - ringkas
+## Linux (LAMPP/XAMPP for Linux)
 ```bash
 # Start LAMPP
 sudo /opt/lampp/lampp start
