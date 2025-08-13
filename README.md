@@ -85,5 +85,5 @@ sudo composer dump-autoload -o
 ---
 
 ## Selesai
-- Akses halaman via `…/public/` *(atau URL cantik jika VirtualHost diarahkan ke `public/`).*  
+- Akses halaman via `…/public/`
 - Jika error autoload: jalankan `composer dump-autoload -o`.
