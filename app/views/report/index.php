@@ -68,7 +68,7 @@ foreach ($stoList as $s) {
         </select>
       </div>
       <div class="col-md-3">
-        <label>Jenis Transaksi</label>
+        <label>Jenis Kegiatan</label>
         <select id="sel-trans-new" name="jenis_transaksi" class="form-control" required>
           <option value="">-- Pilih --</option>
           <?php foreach($types as $t): ?>

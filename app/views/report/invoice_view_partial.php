@@ -44,7 +44,7 @@
     <tr>
       <td>
         <strong>BULAN</strong>         : <?= htmlspecialchars($inv['bulan']) ?><br>
-        <strong>JENIS TRANSAKSI</strong>: <?= htmlspecialchars($inv['jenis_transaksi']) ?><br>
+        <strong>JENIS KEGIATAN</strong>: <?= htmlspecialchars($inv['jenis_transaksi']) ?><br>
         <strong>TARIF NORMAL</strong>  : Rp <?= number_format($inv['tarif_normal'],0,',','.') ?><br>
         <strong>TARIF LEMBUR</strong>  : Rp <?= number_format($inv['tarif_lembur'],0,',','.') ?>
       </td>

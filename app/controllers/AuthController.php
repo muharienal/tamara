@@ -30,24 +30,115 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 // Tampilkan form login
 require_once __DIR__ . '/../views/layout/header.php';
 ?>
-<div class="container mt-5" style="max-width:400px;">
-    <h2 class="text-center mb-4">Login TAMARA</h2>
+
+<div class="auth-canvas">
+  <div class="auth-grid" aria-hidden="true"></div>
+
+  <div class="login-card <?php echo isset($_SESSION['error']) ? 'shake' : '' ?>">
+    <div class="brand">
+      <h2>TAMARA</h2>
+    </div>
+    <p class="subtitle">Login ke dashboard</p>
+
     <?php if (isset($_SESSION['error'])): ?>
-        <div class="alert alert-danger">
-            <?= $_SESSION['error']; unset($_SESSION['error']); ?>
-        </div>
+      <div class="alert alert-modern mb-3 py-2 px-3" role="alert">
+        <?= $_SESSION['error']; unset($_SESSION['error']); ?>
+      </div>
     <?php endif; ?>
-    <form method="POST" action="index.php?page=login">
-        <div class="mb-3">
-            <label for="username" class="form-label">Username</label>
-            <input type="text" name="username" class="form-control" required>
+
+    <form method="POST" action="index.php?page=login" id="loginForm" novalidate>
+    <!-- Username -->
+    <div class="field input-wrap mb-3">
+        <label for="username" class="field-label">Username</label>
+        <input
+        type="text"
+        class="form-control"
+        id="username"
+        name="username"
+        placeholder="Masukkan Username"
+        required
+        autocomplete="username"
+        autofocus
+        aria-label="Username">
+    </div>
+
+    <!-- Password -->
+    <div class="field input-wrap mb-2">
+        <label for="password" class="field-label">Password</label>
+        <input
+        type="password"
+        class="form-control"
+        id="password"
+        name="password"
+        placeholder="Masukkan Password"
+        required
+        autocomplete="current-password"
+        minlength="4"
+        aria-label="Password">
+
+        <button type="button" class="toggle-pass" aria-label="Tampilkan/sembunyikan password" tabindex="0">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 5C7 5 2.73 8.11 1 12c1.73 3.89 6 7 11 7s9.27-3.11 11-7c-1.73-3.89-6-7-11-7Z" stroke="currentColor" stroke-width="1.6"/>
+            <circle cx="12" cy="12" r="3.2" stroke="currentColor" stroke-width="1.6"/>
+        </svg>
+        </button>
+    </div>
+
+    <div class="meta">
+        <div class="form-check" style="user-select:none">
+        <input class="form-check-input" type="checkbox" value="" id="remember" checked>
+        <label class="form-check-label" for="remember">Ingat saya</label>
         </div>
-        <div class="mb-3">
-            <label for="password" class="form-label">Password</label>
-            <input type="password" name="password" class="form-control" required>
-        </div>
-        <button type="submit" class="btn btn-primary w-100">Login</button>
+        <span class="tiny"><a href="#" onclick="event.preventDefault();">Lupa password?</a></span>
+    </div>
+
+    <button type="submit" class="btn btn-gradient w-100 mt-3 py-2 fw-semibold" id="loginBtn">
+        <span class="btn-text">Login</span>
+        <span class="spinner-border spinner-border-sm ms-2 d-none" role="status" aria-hidden="true"></span>
+    </button>
     </form>
+
+    <div class="tiny mt-3 text-center" style="color:#94a3b8">
+      © <script>document.write(new Date().getFullYear())</script> TAMARA • All rights reserved
+    </div>
+  </div>
 </div>
+
+<script>
+(() => {
+  const pass  = document.getElementById('password');
+  const toggle= document.querySelector('.toggle-pass');
+  const form  = document.getElementById('loginForm');
+  const btn   = document.getElementById('loginBtn');
+  const txt   = btn.querySelector('.btn-text');
+  const spn   = btn.querySelector('.spinner-border');
+
+  // Toggle eye (click + keyboard)
+  const toggleEye = () => {
+    const type = pass.getAttribute('type') === 'password' ? 'text' : 'password';
+    pass.setAttribute('type', type);
+    toggle.style.opacity = type === 'text' ? 1 : .85;
+  };
+  toggle.addEventListener('click', toggleEye);
+  toggle.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleEye(); }
+  });
+
+  // Submit: client validation, loading state, shake on invalid
+  form.addEventListener('submit', (e) => {
+    if (!form.checkValidity()) {
+      e.preventDefault(); e.stopPropagation();
+      const card = document.querySelector('.login-card');
+      card.classList.add('shake');
+      setTimeout(() => card.classList.remove('shake'), 450);
+      return;
+    }
+    btn.disabled = true;
+    txt.textContent = 'Memproses...';
+    spn.classList.remove('d-none');
+  }, false);
+})();
+</script>
+
 <?php
 require_once __DIR__ . '/../views/layout/footer.php';

@@ -12,12 +12,35 @@ $user   = $stmt->fetch(PDO::FETCH_ASSOC);
 if (!$user) { header('HTTP/1.1 403 Forbidden'); exit('User not found'); }
 $role = $user['role'];
 
-$allowed = ['STAF_GUDANG','KEPALA_GUDANG','STAF_WILAYAH','ADMIN_PUSAT','KEUANGAN','SUPERADMIN'];
-if (!in_array($role, $allowed, true)) { header('HTTP/1.1 403 Forbidden'); exit('Access denied'); }
+$allowed = [
+    'ADMIN_GUDANG',
+    'KEPALA_GUDANG',
+    'ADMIN_WILAYAH',
+    'PERWAKILAN_PI',
+    'ADMIN_PCS',
+    'KEUANGAN',
+    'SUPERADMIN'
+];
 
-// urutan alur
-$flow = ['STAF_GUDANG','KEPALA_GUDANG','STAF_WILAYAH','ADMIN_PUSAT','KEUANGAN'];
-$idxOf = function(string $r) use ($flow){ $i=array_search($r,$flow,true); return $i===false?null:$i; };
+if (!in_array($role, $allowed, true)) {
+    header('HTTP/1.1 403 Forbidden');
+    exit('Access denied');
+}
+
+// urutan alur (sesuai kebutuhan proses)
+$flow = [
+    'ADMIN_GUDANG',
+    'KEPALA_GUDANG',
+    'ADMIN_WILAYAH',
+    'PERWAKILAN_PI',
+    'ADMIN_PCS',
+    'KEUANGAN'
+];
+
+$idxOf = function (string $r) use ($flow) {
+    $i = array_search($r, $flow, true);
+    return $i === false ? null : $i;
+};
 
 $action = $_GET['action'] ?? 'form';
 

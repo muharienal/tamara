@@ -48,7 +48,7 @@
       </select>
     </div>
     <div class="col-md-4">
-      <label class="form-label">Jenis Transaksi</label>
+      <label class="form-label">Jenis Kegiatan</label>
       <select name="jenis_transaksi" class="form-control" required>
         <option value="">-- Pilih --</option>
         <option value="BONGKAR">BONGKAR</option>
