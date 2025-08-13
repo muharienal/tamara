@@ -46,7 +46,7 @@ $action = $_GET['action'] ?? 'form';
 
 // util: cari current dari logs
 $resolveCurrent = function(array $logs) use ($flow, $idxOf){
-    $current = 'STAF_GUDANG';
+    $current = 'ADMIN_GUDANG';
     if (!$logs) return $current;
     $last = end($logs);
     $i    = $idxOf($last['role']);

@@ -98,7 +98,7 @@ $canDecide = ($current === $role) && !$hasDecided;
   <!-- tombol -->
   <?php if ($canDecide && $current !== null): ?>
     <div class="text-end mb-3">
-      <?php if ($role === 'STAF_GUDANG'): ?>
+      <?php if ($role === 'ADMIN_GUDANG'): ?>
         <button class="btn btn-primary btn-decision"
                 data-decision="approve"
                 data-id="<?= (int)$inv['id'] ?>">
