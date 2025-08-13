@@ -1,4 +1,4 @@
-# TAMARA — Install (Windows & Linux)
+# TAMARA - Install (Windows & Linux)
 
 Aplikasi **PHP Native** dengan **Composer**. Panduan ini hanya untuk **instalasi & menjalankan**.
 
