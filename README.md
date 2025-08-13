@@ -1,4 +1,4 @@
-# TAMARA - Install (Windows & Linux)
+# TAMARA — Install (Windows & Linux)
 
 Aplikasi **PHP Native** dengan **Composer**. Panduan ini hanya untuk **instalasi & menjalankan**.
 
@@ -84,7 +84,7 @@ sudo composer dump-autoload -o
 
 ---
 
-## Linux (LAMPP/XAMPP for Linux) - ringkas
+## Linux (LAMPP/XAMPP for Linux) — ringkas
 ```bash
 # Start LAMPP
 sudo /opt/lampp/lampp start
@@ -101,6 +101,18 @@ sudo composer dump-autoload -o
 - Buat DB `tamara` via `http://localhost/phpmyadmin` → **Import** file **.sql**.  
 - Edit `config/database.php`.  
 - Akses: `http://localhost/tamara/public/`
+
+---
+
+## Akun Default (Dev/Testing)
+> **Ganti password setelah login pertama.** Akun berikut hanya untuk pengujian/development.
+- **superadmin** — `admin123`
+- **admin_gudang** — `sg123`
+- **kepala_gudang** — `kg123`
+- **admin_wilayah** — `sw123`
+- **perwakilan_pi** — `pi123`
+- **admin_pcs** — `ap123`
+- **keuangan** — `kw123`
 
 ---
 
