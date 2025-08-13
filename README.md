@@ -84,7 +84,7 @@ sudo composer dump-autoload -o
 
 ---
 
-## Linux (LAMPP/XAMPP for Linux) — ringkas
+## Linux (LAMPP/XAMPP for Linux) - ringkas
 ```bash
 # Start LAMPP
 sudo /opt/lampp/lampp start
