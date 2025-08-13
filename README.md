@@ -105,7 +105,7 @@ sudo composer dump-autoload -o
 ---
 
 ## Akun Default (Dev/Testing)
-> **Ganti password setelah login pertama.** Akun berikut hanya untuk pengujian/development.
+> Akun berikut hanya untuk pengujian/development.
 - **superadmin** — `admin123`
 - **admin_gudang** — `sg123`
 - **kepala_gudang** — `kg123`
