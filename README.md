@@ -27,8 +27,7 @@ cd tamara
 
 ### 2) Composer
 ```bat
-composer install
-composer dump-autoload -o
+composer require dompdf/dompdf:^2.0 phpoffice/phpspreadsheet:^1.29 ezyang/htmlpurifier:^4.17 phpqrcode/phpqrcode:^1.0 psr/simple-cache:^3.0 && composer dump-autoload -o
 ```
 
 ### 3) Database (phpMyAdmin)
@@ -63,8 +62,7 @@ sudo git clone https://github.com/<org-atau-username>/tamara.git
 cd tamara
 
 # Composer
-sudo /opt/lampp/bin/php /usr/local/bin/composer install || composer install
-sudo composer dump-autoload -o
+sudo sh -c 'cd /opt/lampp/htdocs/tamara && composer require dompdf/dompdf:^2.0 phpoffice/phpspreadsheet:^1.29 ezyang/htmlpurifier:^4.17 phpqrcode/phpqrcode:^1.0 psr/simple-cache:^3.0 && composer dump-autoload -o'
 ```
 - Buat DB `tamara` via `http://localhost/phpmyadmin` → **Import** file **.sql**.  
 - Edit `config/database.php`.  
